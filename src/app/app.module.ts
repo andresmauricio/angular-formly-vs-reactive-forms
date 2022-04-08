@@ -12,6 +12,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FormsWhitFormlyComponent } from './components/forms-whit-formly/forms-whit-formly.component';
 import { FormsWhitReactiveFormsComponent } from './components/forms-whit-reactive-forms/forms-whit-reactive-forms.component';
 import { MaterialModule } from './material/material.module';
+import { validationMessages } from './formly/validations';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, FormsWhitFormlyComponent, FormsWhitReactiveFormsComponent],
@@ -20,7 +21,7 @@ import { MaterialModule } from './material/material.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    FormlyModule.forRoot(),
+    FormlyModule.forRoot({validationMessages: validationMessages}),
     FormlyMaterialModule,
     MaterialModule
   ],
