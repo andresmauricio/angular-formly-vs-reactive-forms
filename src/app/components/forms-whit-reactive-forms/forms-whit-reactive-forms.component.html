@@ -1,1 +1,39 @@
 <h1>Forms whit Reactive Forms</h1>
+
+<form class="continer-form" [formGroup]="personalForm" (ngSubmit)="submit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Full Name</mat-label>
+    <input matInput placeholder="Joe Doe" formControlName="full_name" />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="example@example.com" formControlName="email" />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Country</mat-label>
+    <mat-select
+      formControlName="country"
+      (selectionChange)="gecountriestCitiesId($event)"
+    >
+      <mat-option *ngFor="let country of countries" [value]="country">
+        {{ country.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>City</mat-label>
+    <mat-select formControlName="city" [disabled]="cities.length === 0">
+      <mat-option *ngFor="let city of cities" [value]="city">
+        {{ city.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button type="button" color="warn" (click)="reset()">
+    Reset
+  </button>
+  <button mat-raised-button color="primary" type="submit">Submit</button>
+  <pre>
+    <p>Valid Form: {{personalForm.valid}}</p>
+    <p>Values: {{personalForm.value | json}}</p>
+  </pre>
+</form>

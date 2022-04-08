@@ -1,1 +1,17 @@
 <h1>Forms whit Formly</h1>
+
+<form [formGroup]="form" (ngSubmit)="submit()" class="container-form">
+  <formly-form [model]="model" [fields]="fields" [form]="form"></formly-form>
+  <button
+    type="button"
+    mat-raised-button
+    color="warn"
+    (click)="options.resetModel()"
+  >
+    Reset
+  </button>
+  <button type="submit" mat-raised-button color="primary">Submit</button>
+  <pre>
+    <p>Valid Model: {{model | json}}</p>
+  </pre>
+</form>
