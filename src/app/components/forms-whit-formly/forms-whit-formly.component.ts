@@ -12,11 +12,7 @@ import { ConfigService } from 'src/app/services/config.service';
 export class FormsWhitFormlyComponent implements OnInit {
   form = new FormGroup({});
   model: any = {};
-  options: FormlyFormOptions | any = {
-    formState: {
-      awesomeIsForced: false,
-    },
-  };
+  options: FormlyFormOptions | any = { };
 
   fields: FormlyFieldConfig[] = [
     {
