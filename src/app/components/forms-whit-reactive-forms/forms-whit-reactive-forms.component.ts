@@ -34,8 +34,6 @@ export class FormsWhitReactiveFormsComponent implements OnInit {
   }
 
   gecountriestCitiesId(event: any) {
-    console.log('running', event);
-
     this.configService
       .getCitiesById(event.value.id)
       .subscribe((cities) => (this.cities = cities.results));
